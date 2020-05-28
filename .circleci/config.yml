@@ -2,10 +2,9 @@
 version: 2.1
 jobs:
   build:
-    docker:
-      - image: https://github.com/amazonlinux/container-images/blob/3209338a28f4fa5f0a189e517c0809d095c777d8/Dockerfile
+    machine:
+      image: 'ubuntu-1604:201903-01'
     steps:
       - checkout
       - run: |
          echo "Hello world!"
-         ./scripts/install_grafana.sh

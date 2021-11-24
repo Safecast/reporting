@@ -1,0 +1,6 @@
+global:
+  application_name: reporting
+  default_ec2_keyname: safecastapi
+  default_platform: Docker running on 64bit Amazon Linux 2
+  default_region: us-west-2
+  workspace_type: Application

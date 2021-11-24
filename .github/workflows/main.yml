@@ -1,0 +1,32 @@
+name: Main
+
+on:
+  push:
+    branches:
+      - '*'
+  pull_request:
+    types: [opened, synchronize, reopened]
+  workflow_dispatch: ~
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build and publish artifacts
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Check if secrets are available for publishing
+        run: echo "SECRETS_AVAILABLE=${{ secrets.AWS_ACCESS_KEY_ID }}" >> $GITHUB_ENV
+      - name: Configure AWS Credentials
+        if: env.SECRETS_AVAILABLE
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-west-2
+      - name: Create application bundle
+        if: env.SECRETS_AVAILABLE
+        uses: Safecast/github-actions/bundle-application@v1
+        with:
+            app: reporting
+            s3_bucket: elasticbeanstalk-us-west-2-985752656544

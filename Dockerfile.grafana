@@ -5,5 +5,5 @@ RUN grafana cli plugins install petrslavotinek-carpetplot-panel && \
     grafana cli plugins install simpod-json-datasource && \
     grafana cli plugins install dalvany-image-panel && \
     grafana cli \
-      --pluginUrl https://github.com/panodata/panodata-map-panel/releases/download/0.15.0/grafana-map-panel-0.15.0.zip \
-      plugins install grafana-map-panel
+      --pluginUrl https://github.com/panodata/panodata-map-panel/releases/download/0.16.0/panodata-map-panel-0.16.0.zip \
+      plugins install panodata-map-panel

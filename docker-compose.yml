@@ -1,6 +1,6 @@
 services:
   proxy:
-    image: nginx:1.19
+    image: nginx:1.27
     environment:
       - KIBANA_ENDPOINT=https://my-deployment-c3fead.kb.us-west-2.aws.found.io:9243
       - KIBANA_BASIC_AUTH
@@ -29,7 +29,7 @@ services:
       - GF_SERVER_ROOT_URL
 
   renderer:
-    image: grafana/grafana-image-renderer:3.3.0
+    image: grafana/grafana-image-renderer:3.11.4
 
   library:
     image: safecast/library:latest

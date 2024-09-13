@@ -1,4 +1,4 @@
-FROM grafana/grafana:11.1.1
+FROM grafana/grafana:11.2.0
 
 RUN grafana cli plugins install petrslavotinek-carpetplot-panel && \
     grafana cli plugins install grafana-googlesheets-datasource && \
